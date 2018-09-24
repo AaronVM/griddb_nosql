@@ -1,0 +1,130 @@
+#include <stdio.h>			
+#include <conio.h>
+#include <stdbool.h>
+
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+void Recorrido (char Info[8][2], int Indice[8], int Inicio, int Disp);
+void Busqueda (int Inicio, char Info[8][2], int Indice[8], char Elemento[], int Disp);
+void Agregar (int Inicio, char Info[8][2], int Indice[8], char Dispo[]);
+//void Disponible (int Inicio, char Info[8][2], int Indice[8], bool Dispo);
+int main()
+ {
+ 	char Info[8][2] = {{"G"}, {"I"}, {" "}, {"T"}, {"O"}, {"A"}, {" "}, {"T"}};
+ 	int Indice[8] = {5, 7, 6, 1, -999, 3, -999, 4};
+ 	int Inicio = 0, Disp = 2;
+ 	char Elemento[] = "-";
+ 	
+ 	char Dispo[] = "-";
+
+ 
+    
+ 	//char Dispo[] = "-";
+ 	
+ 	
+ 	printf("Digite la letra que desea buscar: \n");
+	scanf("%c", &Elemento);
+ 	
+ 	printf("\nEl recorrido es: \n");
+ 	Recorrido(Info, Indice, Inicio, Disp);
+ 	
+ 	printf("\n \nLa posicion de la letra es: \n");
+ 	Busqueda(Inicio, Info, Indice, Elemento, Disp);
+ 	
+ 	printf("\n \nAgregue simbolo o letra: \n");
+ 	Agregar (Inicio, Info, Indice, Dispo);
+ 	
+ 	//Disponible(Inicio, Info, Indice, Dispo);
+ 
+ 	
+ 	getch();
+ 	
+}
+
+void Recorrido(char Info[8][2], int Indice[8], int Inicio, int Disp)
+{
+	int Apuntador = Inicio;
+	
+	while(Apuntador != -999)
+	{
+		printf(Info[Apuntador]);
+		
+		Apuntador = Indice[Apuntador];	
+	}
+	
+}
+
+void Busqueda (int Inicio, char Info[8][2], int Indice[8], char Elemento[], int Disp)
+{
+	int Apuntador = Inicio;
+	
+	while(Apuntador != -999)
+	{
+		if(0 == strcmp(Elemento, Info[Apuntador]))
+		{
+			printf("%d", Apuntador);	
+
+		}	
+		Apuntador = Indice[Apuntador];
+	}
+	
+}
+
+//void AgregarElemento 
+		//Llama otro metodo llamado proximo disponible
+		
+		// Agrega < en el primero disponible; Agrega > en el ultimo disponible
+//Funcion eliminar 
+
+//resultado: <GATITO>		
+
+
+void Disponible (int Inicio, char Info[8][2], int Indice[8], bool Dispo)
+{
+	int Apuntador = Inicio;
+	
+	while(Apuntador != -999)
+	{
+		if(Info[Apuntador] == " ")
+		{
+			Dispo = true;
+			printf("\n Campo disponible en la celda: \n");
+			printf("%d", Apuntador);
+				
+		}
+		Dispo = false;
+		Apuntador = Indice[Apuntador];
+	}
+	
+}
+
+
+void Agregar (int Inicio, char Info[8][2], int Indice[8], char Dispo[])
+{
+	int Apuntador = Inicio; 
+//	char Disp[] = "-";
+	while(Apuntador != -999)
+	{
+		if (Info[Apuntador] == " ")
+		{
+			scanf("%c", &Dispo);
+		}
+		
+		Apuntador = Indice[Apuntador];
+	}
+	
+}
+
+void Eliminar (int Inicio, char Info[8][2], int Indice[8])
+{
+	int Apuntador = Inicio;
+	int Temp = Inicio;
+	while(Apuntador != -999)
+	{
+		
+		
+		Apuntador = Indice[Apuntador];
+	}
+	
+ } 
